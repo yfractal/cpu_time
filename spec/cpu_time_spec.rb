@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 
-RSpec.describe CpuTime do
-  it "has a version number" do
-    expect(CpuTime::VERSION).not_to be nil
-  end
+RSpec.describe CPUTime do
+  it 'it only counts cpu time' do
+    t0 = cpu_time
+    sleep 0.1
+    t1 = cpu_time
 
-  it "does something useful" do
-    expect(false).to eq(true)
+    expect(t1 - t0).to be > 0
+    expect(t1 - t0).to be < 0.1
   end
 end

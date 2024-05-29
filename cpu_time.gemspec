@@ -4,7 +4,7 @@ require_relative "lib/cpu_time/version"
 
 Gem::Specification.new do |spec|
   spec.name = "cpu_time"
-  spec.version = CpuTime::VERSION
+  spec.version = CPUTime::VERSION
   spec.authors = ["Mike Yang"]
   spec.email = ["yfractal@gmail.com"]
 
@@ -32,10 +32,12 @@ Gem::Specification.new do |spec|
   spec.bindir = "exe"
   spec.executables = spec.files.grep(%r{\Aexe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
+  spec.extensions = ["ext/cpu_time/extconf.rb"]
 
   # Uncomment to register a new dependency of your gem
   # spec.add_dependency "example-gem", "~> 1.0"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
+  spec.add_development_dependency('rake-compiler')
 end
